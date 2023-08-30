@@ -61,6 +61,7 @@ export const DB = {
         await db.collection('blogs').deleteMany({})
         await db.collection('posts').deleteMany({})
         await db.collection('users').deleteMany({})
+        await db.collection('comments').deleteMany({})
         return 204
     },
 

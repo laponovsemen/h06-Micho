@@ -1,11 +1,11 @@
-import { DB } from './mongo-db'
+import { DB } from '../mongo-db'
 import {
     Paginator,
     TypeOfRequestQuery,
     UserDataModel,
     UserViewModel
-} from '../types/models'
-import { setDefault } from '../utils/setDefault'
+} from '../../types/models'
+import { setDefault } from '../../utils/setDefault'
 
 export const usersQueryRepo = {
 
@@ -45,6 +45,10 @@ export const usersQueryRepo = {
         }
 
         return page
+    },
+
+    async getDataById(id: string): Promise<UserDataModel | null> {
+        return await DB.getOne('users', {id: id}, {}) as UserDataModel | null
     },
 
     async getDataByLoginOrEmail(loginOrEmail: string): Promise<UserDataModel | null> {

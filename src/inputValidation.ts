@@ -150,3 +150,15 @@ export const loginVdChain = [
 ]
 
 
+
+export const CommentVdChain = [
+
+    body('content', 'Incorrect format!')
+        .trim()
+        .notEmpty()
+        .bail()
+        .isLength({min: 20, max: 300}).withMessage('Incorrect length! (20 - 300)')
+
+]
+
+

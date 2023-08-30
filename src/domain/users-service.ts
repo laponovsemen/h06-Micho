@@ -7,7 +7,7 @@ import {
 } from '../types/models'
 import { usersRepo } from '../repositories/users-repository'
 import bcrypt from 'bcrypt'
-import {usersQueryRepo} from "../repositories/users-query-repository";
+import { usersQueryRepo } from "../repositories/query/users-query-repository";
 
 export const usersService = {
 
@@ -35,12 +35,14 @@ export const usersService = {
 
 
 
-    async authenticate(req: TypeOfRequestBody<LoginInputModel>): Promise<boolean> {
+    async authenticate(req: TypeOfRequestBody<LoginInputModel>): Promise<UserDataModel | null> {
         const user = await usersQueryRepo.getDataByLoginOrEmail(req.body.loginOrEmail)
         if (user) {
-            return await bcrypt.compare(req.body.password, user.password)
+            if (await bcrypt.compare(req.body.password, user.password)) {
+                return user
+            }
         }
-        return false
+        return null
     }
 
 }

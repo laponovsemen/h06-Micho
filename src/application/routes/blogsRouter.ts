@@ -1,5 +1,5 @@
 import { Response, Router } from 'express'
-import { admins } from '../repositories/mongo-db'
+import { admins } from '../../repositories/mongo-db'
 import {
     TypeOfRequestP,
     TypeOfRequestBody,
@@ -11,16 +11,16 @@ import {
     BlogViewModel,
     APIErrorResult,
     TypeOfRequestQuery, PostViewModel
-} from '../types/models'
+} from '../../types/models'
 
 import basicAuth from 'express-basic-auth'
 import { Result, validationResult } from 'express-validator'
-import { blogPostVdChain, blogVdChain } from '../inputValidation'
-import { blogsService } from '../domain/blogs-service'
-import { ErrorMapper } from '../utils/errorMapper'
-import { blogsQueryRepo } from '../repositories/blogs-query-repository'
-import { postsQueryRepo } from '../repositories/posts-query-repository'
-import { postsService } from '../domain/posts-service'
+import { blogPostVdChain, blogVdChain } from '../../inputValidation'
+import { blogsService } from '../../domain/blogs-service'
+import { ErrorMapper } from '../../utils/errorMapper'
+import { blogsQueryRepo } from '../../repositories/query/blogs-query-repository'
+import { postsQueryRepo } from '../../repositories/query/posts-query-repository'
+import { postsService } from '../../domain/posts-service'
 
 export const blogsRouter = Router({})
 

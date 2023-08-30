@@ -1,6 +1,6 @@
-import { DB } from './mongo-db'
-import { Paginator, PostViewModel, TypeOfRequestP_Query, TypeOfRequestQuery } from '../types/models'
-import { setDefault } from '../utils/setDefault'
+import { DB } from '../mongo-db'
+import { Paginator, PostViewModel, TypeOfRequestP_Query, TypeOfRequestQuery } from '../../types/models'
+import { setDefault } from '../../utils/setDefault'
 
 export const postsQueryRepo = {
 

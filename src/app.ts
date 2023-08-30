@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express'
 import { DB } from './repositories/mongo-db'
-import { blogsRouter } from './routes/blogsRouter'
-import { postsRouter } from './routes/postsRouter'
-import {authRouter} from "./routes/authRouter";
-import {usersRouter} from "./routes/usersRouter";
+import { blogsRouter } from './application/routes/blogsRouter'
+import { postsRouter } from './application/routes/postsRouter'
+import { authRouter } from './application/routes/authRouter'
+import { usersRouter } from './application/routes/usersRouter'
+import { commentsRouter } from './application/routes/commentsRouter'
 
 export const app = express()
 
@@ -21,5 +22,6 @@ app.use('/blogs', blogsRouter)
 app.use('/posts', postsRouter)
 app.use('/auth', authRouter)
 app.use('/users', usersRouter)
+app.use('/comments', commentsRouter)
 
 

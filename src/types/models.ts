@@ -87,4 +87,38 @@ export type UserDataModel = {
     createdAt: string
 }
 
+export type MeViewModel = {
+    email: string
+    login: string
+    userId: string
+}
+
+export type LoginSuccessViewModel = {
+    accessToken: string
+}
+
+export type CommentatorInfo = {
+    userId: string
+    userLogin: string
+}
+
+export type CommentViewModel = {
+    id: string
+    content: string
+    commentatorInfo: CommentatorInfo
+    createdAt: string
+}
+
+export type CommentDataModel = {
+    id: string
+    postId: string
+    content: string
+    commentatorInfo: CommentatorInfo
+    createdAt: string
+}
+
+export type CommentInputModel = {
+    content: string
+}
+
 
